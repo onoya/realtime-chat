@@ -13,5 +13,7 @@ server.listen(PORT, () => {
 });
 
 io.on('connection', socket => {
-  socket.emit('message', 'Hello!');
+  socket.on('newMessage', msg => {
+    io.emit('message', msg);
+  });
 });
