@@ -14,7 +14,7 @@ const Room = () => {
     if (query.username) {
       socket.emit('room/join', { username: query.username, room: roomId });
     }
-  }, [query, socket]);
+  }, [query.username, socket, roomId]);
 
   if (!query.username) {
     return <Redirect to="/" />;
